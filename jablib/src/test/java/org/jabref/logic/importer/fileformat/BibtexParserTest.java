@@ -2197,6 +2197,7 @@ class BibtexParserTest {
         ParserResult result = parser.parse(Reader.of(bibtex));
 
         assertFalse(result.hasWarnings());
+        assertEquals(Optional.of("database"), result.getDatabase().getSharedDatabaseID());
         assertEquals(1, result.getDatabase().getEntries().size());
         assertEquals(Optional.of("real"),
                 result.getDatabase().getEntries().getFirst().getCitationKey());
